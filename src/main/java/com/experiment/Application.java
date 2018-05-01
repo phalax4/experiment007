@@ -15,45 +15,24 @@ public class Application {
         Person w1 = new Person("w1", new ArrayList(Arrays.asList("m2", "m1", "m0")));
         Person w2 = new Person("w2", new ArrayList(Arrays.asList("m0", "m2", "m1")));
 
-        HashMap<String, Person> wHashMap = new HashMap();
-        wHashMap.put(w0.getId(), w0);
-        wHashMap.put(w1.getId(), w1);
-        wHashMap.put(w2.getId(), w2);
+
+        Person p0 = new Person("p1", new ArrayList(Arrays.asList("a2", "a1", "a3", "a4")));
+        Person p1 = new Person("p2", new ArrayList(Arrays.asList("a4", "a1", "a2", "a3")));
+        Person p2 = new Person("p3", new ArrayList(Arrays.asList("a1", "a3", "a2","a4")));
+        Person p3 = new Person("p4", new ArrayList(Arrays.asList("a2", "a3", "a1", "a4")));
 
 
-        HashMap<String, Person> mHashMap = new HashMap();
-        wHashMap.put(m0.getId(), m0);
-        wHashMap.put(m1.getId(), m1);
-        wHashMap.put(m2.getId(), m2);
+        Person a0 = new Person("a1", new ArrayList(Arrays.asList("p1", "p3", "p2", "p4")));
+        Person a1 = new Person("a2", new ArrayList(Arrays.asList("p3", "p4", "p1", "p2")));
+        Person a2 = new Person("a3", new ArrayList(Arrays.asList("p4", "p2", "p3","p1")));
+        Person a3 = new Person("a4", new ArrayList(Arrays.asList("p3", "p2", "p1", "p4")));
 
-        Queue<Person> q = new LinkedList<Person>();
-        q.add(m0);
-        q.add(m1);
-        q.add(m2);
 
-        while(!q.isEmpty()){
-            Person currMan = q.poll();
-            Person unProposedW = wHashMap.get(currMan.getPref().get(currMan.unproposedIdx));
-            currMan.unproposedIdx++;
-            if(unProposedW.getEngagedTo() == null){
-                unProposedW.setEngagedTo(currMan.getId());
-                currMan.setEngagedTo(unProposedW.getId());
-            }else{
-                String tempPId = unProposedW.preferredPerson(currMan.getId(), unProposedW.getEngagedTo());
-                if(currMan.getId().equals(tempPId)){
-                    q.add(mHashMap.get(unProposedW.getEngagedTo()));
-                    unProposedW.setEngagedTo(currMan.getId());
-                    currMan.setEngagedTo(unProposedW.getId());
 
-                }
-            }
-        }
-
-        for(Map.Entry<String,Person> entry: wHashMap.entrySet()){
-            System.out.println(entry.getKey() + "...." + entry.getValue());
-        }
-        for(Map.Entry<String,Person> entry: mHashMap.entrySet()){
-            System.out.println(entry.getKey() + "...." + entry.getValue());
-        }
+        Matching m = new Matching();
+        m.matchPeople(new ArrayList<Person>(Arrays.asList(m0, m1, m2)),new ArrayList<Person>(Arrays.asList(w0, w1, w2)));
+        m.matchPeople(new ArrayList<Person>(Arrays.asList(p0, p1, p2, p3)), new ArrayList<Person>(Arrays.asList(a0, a1, a2,a3)));
     }
+
+
 }

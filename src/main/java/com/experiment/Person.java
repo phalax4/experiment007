@@ -51,7 +51,9 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "engagedTo='" + engagedTo + '\'' +
+                "id='" + id + '\'' +
+                ", pref=" + pref +
+                ", engagedTo='" + engagedTo + '\'' +
                 ", unproposedIdx=" + unproposedIdx +
                 '}';
     }
@@ -62,6 +64,7 @@ public class Person {
                 return p;
             }
         }
+        System.out.println("returned null");
         return null;
 
     }
