@@ -30,8 +30,8 @@ public class Application {
 
 
         Matching m = new Matching();
-        m.matchPeople(new ArrayList<Person>(Arrays.asList(m0, m1, m2)),new ArrayList<Person>(Arrays.asList(w0, w1, w2)));
-        m.matchPeople(new ArrayList<Person>(Arrays.asList(p0, p1, p2, p3)), new ArrayList<Person>(Arrays.asList(a0, a1, a2,a3)));
+        m.matchPeopleBasic(new ArrayList<Person>(Arrays.asList(m0, m1, m2)),new ArrayList<Person>(Arrays.asList(w0, w1, w2)));
+        m.matchPeopleBasic(new ArrayList<Person>(Arrays.asList(p0, p1, p2, p3)), new ArrayList<Person>(Arrays.asList(a0, a1, a2,a3)));
     }
 
 

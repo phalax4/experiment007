@@ -1,14 +1,11 @@
 package com.experiment;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Person {
     private String id;
     private ArrayList<String> pref;
     private String engagedTo = null;
-    private HashMap<String, Integer> unproposed = new HashMap<String, Integer>();
-
     public int unproposedIdx = 0;
 
     public Person(String id, ArrayList<String> pref) {
@@ -38,14 +35,6 @@ public class Person {
 
     public void setEngagedTo(String engagedTo) {
         this.engagedTo = engagedTo;
-    }
-
-    public HashMap<String, Integer> getUnProposed() {
-        return unproposed;
-    }
-
-    public void setUnProposed(HashMap<String, Integer> unproposed) {
-        this.unproposed = unproposed;
     }
 
     @Override
