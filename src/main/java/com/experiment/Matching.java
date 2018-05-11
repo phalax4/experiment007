@@ -125,10 +125,14 @@ public class Matching {
         return resultMap;
     }
 
+    public void
+
     /**
      * Favor Hospitals or acceptors
      */
     public void matchHospitalToResidents(){
 
     }
+
+
 }
